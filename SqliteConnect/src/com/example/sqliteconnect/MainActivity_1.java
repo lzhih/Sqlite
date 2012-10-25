@@ -1,14 +1,13 @@
 package com.example.sqliteconnect;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.org.utils.R;
 
 public class MainActivity_1 extends SQLiteOpenHelper {
 	    private final static String DATABASE_NAME="sec_db";
@@ -55,52 +54,52 @@ public class MainActivity_1 extends SQLiteOpenHelper {
 	        db.execSQL(sql);
 //	        onCreate(db);
 	    }
-	/**
-	 * 查询
-	 * @return
-	 */
-	    public Cursor select()
-	    {
-	        SQLiteDatabase db=this.getReadableDatabase();
-	        Cursor cursor=db.query(TABLE_NAME, null, null, null, null, null,  " _id desc");
-	        return cursor;
-	    }
-	    /**
-	     * 添加
-	     * @param Title
-	     * @return
-	     */
-	    public long insert(String Title)
-	    {
-	        SQLiteDatabase db=this.getWritableDatabase();
-	        ContentValues cv=new ContentValues(); 
-	        cv.put(FIELD_TITLE, Title);
-	        long row=db.insert(TABLE_NAME, null, cv);
-	        return row;
-	    }
-	    /**
-	     * 删除
-	     * @param id
-	     */
-	    public void delete(int id)
-	    {
-	        SQLiteDatabase db=this.getWritableDatabase();
-	        String where=FIELD_ID+"=?";
-	        String[] whereValue={Integer.toString(id)};
-	        db.delete(TABLE_NAME, where, whereValue);
-	    }
-	    /**
-	     * 更新
-	     * @param id
-	     * @param Title
-	     */
-	    public void update(int id,String Title)
-	    {
-	        SQLiteDatabase db=this.getWritableDatabase();
-	        String where=FIELD_ID+"=?";
-	        String[] whereValue={Integer.toString(id)};
-	        ContentValues cv=new ContentValues(); 
-	        cv.put(FIELD_TITLE, Title);
-	        db.update(TABLE_NAME, cv, where, whereValue);
-	    }	   
+//	/**
+//	 * 查询
+//	 * @return
+//	 */
+//	    public Cursor select()
+//	    {
+//	        SQLiteDatabase db=this.getReadableDatabase();
+//	        Cursor cursor=db.query(TABLE_NAME, null, null, null, null, null,  " _id desc");
+//	        return cursor;
+//	    }
+//	    /**
+//	     * 添加
+//	     * @param Title
+//	     * @return
+//	     */
+//	    public long insert(String Title)
+//	    {
+//	        SQLiteDatabase db=this.getWritableDatabase();
+//	        ContentValues cv=new ContentValues(); 
+//	        cv.put(FIELD_TITLE, Title);
+//	        long row=db.insert(TABLE_NAME, null, cv);
+//	        return row;
+//	    }
+//	    /**
+//	     * 删除
+//	     * @param id
+//	     */
+//	    public void delete(int id)
+//	    {
+//	        SQLiteDatabase db=this.getWritableDatabase();
+//	        String where=FIELD_ID+"=?";
+//	        String[] whereValue={Integer.toString(id)};
+//	        db.delete(TABLE_NAME, where, whereValue);
+//	    }
+//	    /**
+//	     * 更新
+//	     * @param id
+//	     * @param Title
+//	     */
+//	    public void update(int id,String Title)
+//	    {
+//	        SQLiteDatabase db=this.getWritableDatabase();
+//	        String where=FIELD_ID+"=?";
+//	        String[] whereValue={Integer.toString(id)};
+//	        ContentValues cv=new ContentValues(); 
+//	        cv.put(FIELD_TITLE, Title);
+//	        db.update(TABLE_NAME, cv, where, whereValue);
+//	    }	   
 }
